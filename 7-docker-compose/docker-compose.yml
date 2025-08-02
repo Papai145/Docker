@@ -1,0 +1,16 @@
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - /home/alaricode/data:/data/pg
+    environment:
+      POSTGRES_PASSWORD: "${PASSWORD}"
+    ports:
+      - "5432:5432"
+    networks:
+      - my-pg-network
+
+networks:
+  my-pg-network:
+    driver: bridge
